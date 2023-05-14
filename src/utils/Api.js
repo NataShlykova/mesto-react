@@ -24,7 +24,7 @@ class Api {
       method: 'GET',
       headers: this._headers
     })
-      .then(this._checkResponse)
+    .then(this._checkResponse)
   }
 
   setUserInfoApi(userData) {
@@ -32,11 +32,11 @@ class Api {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: userData.userName,
-        about: userData.userAbout
+        name: userData.name,
+        about: userData.about
       })
     })
-      .then(this._checkResponse)
+    .then(this._checkResponse)
   }
 
   addUserCard(data) {
@@ -48,23 +48,15 @@ class Api {
         link: data.link
       })
     })
-      .then(this._checkResponse)
+    .then(this._checkResponse)
   }
 
-  like(id) {
+  changeLikeCardStatus(id, isLiked) {
     return fetch(this._url + `/cards/likes/${id}`, {
-      method: 'PUT',
+      method: `${isLiked ? 'PUT' : 'DELETE'}`,
       headers: this._headers
     })
-      .then(this._checkResponse)
-  }
-
-  dislike(id) {
-    return fetch(this._url + `/cards/likes/${id}`, {
-      method: 'DELETE',
-      headers: this._headers
-    })
-      .then(this._checkResponse)
+    .then(this._checkResponse)
   }
 
   delete(id) {
@@ -72,7 +64,7 @@ class Api {
       method: 'DELETE',
       headers: this._headers
     })
-      .then(this._checkResponse)
+    .then(this._checkResponse)
   }
 
   handleUserAvatar(data) {
@@ -80,10 +72,10 @@ class Api {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        avatar: data.userAvatar,
+        avatar: data.avatar,
       })
     })
-      .then(this._checkResponse)
+    .then(this._checkResponse)
   }
 
   getAllNeededData() {
