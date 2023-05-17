@@ -41,6 +41,7 @@ function AddPlacePopup(props) {
         pattern="^[a-zA-Zа-яА-я-\s]+$"
         required
         onChange={handleNameChange}
+        value={name}
       />
       <span className="popup__error-input strigNamePhoto-error"></span>
       <input
@@ -51,6 +52,7 @@ function AddPlacePopup(props) {
         placeholder="Ссылка на картинку"
         required
         onChange={handleLinkChange}
+        value={link}
       />
       <span className="popup__error-input stringLinkPhoto-error"></span>        
     </PopupWithForm>
