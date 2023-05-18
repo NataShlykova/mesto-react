@@ -76,6 +76,7 @@ function App() {
       .catch((err) => console.log(err))
   }
 
+
   function handleAddPlaceSubmit(cardData) {
     api.addUserCard(cardData)
       .then((newCard) => {
