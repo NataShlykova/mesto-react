@@ -37,6 +37,8 @@ function App() {
     setSelectedCard(null)
   }
 
+  
+
   function onCardClick(card) {
     setSelectedCard(card)
   }
@@ -105,27 +107,27 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-    <div className="page">
-      <Header />
-      <Main
-        onEditAvatar={handleEditAvatarClick}
-        onEditProfile={handleEditProfileClick}
-        onAddPlace={handleAddPlaceClick}
-        onCardClick={onCardClick}
-        handleCardLike={handleCardLike}
-        handleCardDelete={handleCardDelete}
-        cards={cards}
-      />
-      <Footer />
-      <EditProfilePopup
+      <div className="page">
+        <Header />
+        <Main
+          onEditAvatar={handleEditAvatarClick}
+          onEditProfile={handleEditProfileClick}
+          onAddPlace={handleAddPlaceClick}
+          onCardClick={onCardClick}
+          handleCardLike={handleCardLike}
+          handleCardDelete={handleCardDelete}
+          cards={cards}
+        />
+        <Footer />
+        <EditProfilePopup
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
           onUpdateUser={onUpdateUser}
         />
 
-       <AddPlacePopup
+        <AddPlacePopup
           isOpen={isAddPlacePopupOpen}
-          onClose={closeAllPopups}        
+          onClose={closeAllPopups}
           onAddPlace={handleAddPlaceSubmit}
         />
         <EditAvatarPopup

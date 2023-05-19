@@ -6,16 +6,17 @@ function EditProfilePopup(props) {
   const [name, setName] = React.useState('')
   const [description, setDescription] = React.useState('')
   const currentUser = React.useContext(CurrentUserContext)
+  const isOpen = props.isOpen;
 
   React.useEffect(() => {
     setName(currentUser.name)
     setDescription(currentUser.about)
-  }, [currentUser])
+  }, [currentUser, isOpen]);
 
   function handleNameChange(e) {
     setName(e.target.value)
   }
-  
+
   function handleDescriptionChange(e) {
     setDescription(e.target.value)
   }
@@ -30,12 +31,12 @@ function EditProfilePopup(props) {
 
   return (
     <PopupWithForm
-    name='profile-edit'
-    title='Редактировать профиль'
-    buttonText='Сохранить'
-    isOpen={props.isOpen}
-    onClose={props.onClose}
-    onSubmit={handleSubmit}
+      name='profile-edit'
+      title='Редактировать профиль'
+      buttonText='Сохранить'
+      isOpen={props.isOpen}
+      onClose={props.onClose}
+      onSubmit={handleSubmit}
     >
       <input
         name="userName"
@@ -46,7 +47,7 @@ function EditProfilePopup(props) {
         minLength="2"
         maxLength="40" pattern="^[a-zA-Zа-яА-я-\s]+$"
         required
-        value={name}
+        value={name || ''}
         onChange={handleNameChange}
       />
       <span className="popup__error-input  inputStringName-error"></span>
@@ -60,11 +61,11 @@ function EditProfilePopup(props) {
         pattern="^[a-zA-Zа-яА-я-\s]+$"
         maxLength="200"
         required
-        value={description}
+        value={description || ''}
         onChange={handleDescriptionChange}
       />
       <span className="popup__error-input inputStringWork-error"></span>
-    </PopupWithForm>    
+    </PopupWithForm>
   )
 }
 

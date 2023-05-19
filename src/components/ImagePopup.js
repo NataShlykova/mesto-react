@@ -5,14 +5,14 @@ function ImagePopup(props) {
       <div className="popup__image-container popup__click-overley">
         <button
           type="button"
-          className="opup__close-button popup__close-button-zoom"
+          className="popup__close-button popup__close-button-zoom"
           onClick={props.onClose}
         >
         </button>
         <figure className="popup__image-zoom">
 
           <img
-            src={props.card ? props.card.link : '#'}
+            src={props.card ? props.card.link : ''}
             className="popup__img"
             alt={props.card ? props.card.name : ''}
           />

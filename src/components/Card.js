@@ -33,7 +33,7 @@ function Card(props) {
                 aria-label="Удалить изображение"></button>
             <img
                 src={props.card.link}
-                img className="element__image"
+                className="element__image"
                 alt={props.card.name}
                 onClick={handleCardClick}
             />
@@ -41,7 +41,7 @@ function Card(props) {
                 <h2 className="element__text">{props.card.name}</h2>
                 <div className="element__like-cont">
                     <button type="button" className={cardLikeButtonClassName} onClick={handleLikeClick}></button>
-                    <span className="element__like-cont">{props.card.likes.length}</span>
+                    <span className="element__like-count">{props.card.likes.length}</span>
                 </div>
             </div>
 
